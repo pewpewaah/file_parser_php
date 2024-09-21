@@ -3,13 +3,17 @@
 declare(strict_types = 1);
 
 
-function getData():array
+function getData(string $dirPath):array
 {
     $files = [];
 
-    foreach(scandir(FILES_PATH) as $file)
+    foreach(scandir($dirPath) as $file)
     {
-        var_dump($file);
+        if(is_dir($file)){
+            $file_ = getData($file);
+        }
+        $files[] = $file_;
+        $files[] = $file;
     }
     return $files;
 }
