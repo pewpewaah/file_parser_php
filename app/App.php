@@ -9,10 +9,11 @@ function getData(string $dirPath):array
 
     foreach(scandir($dirPath) as $file)
     {
-        if(is_dir($file)){
-            $file_ = getData($file);
+        var_dump($file);
+        if(is_dir($file))
+        {
+            $files[] = getData($file."/");
         }
-        $files[] = $file_;
         $files[] = $file;
     }
     return $files;

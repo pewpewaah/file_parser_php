@@ -11,5 +11,4 @@ define('VIEWS_PATH',$root.'views'.DIRECTORY_SEPARATOR);
 require APP_PATH."App.php";
 var_dump($root);
 $files = getData($root."data");
-var_dump($files);
 
