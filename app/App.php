@@ -1,19 +1,37 @@
 <?php
-
 declare(strict_types = 1);
 
 
-function getData(string $dirPath):array
+function getDataPaths(string $dirPath): array
 {
     $files = [];
 
     foreach(scandir($dirPath) as $file)
     {
-        if(is_dir($file)){
-            $file_ = getData($file);
+        if($file==="." | $file==="..") 
+            continue;
+        $adr = $dirPath."/".$file;
+        if(is_dir($adr)){
+            $content = getDataPaths($adr);
+            $files= array_merge($files,$content);
         }
-        $files[] = $file_;
-        $files[] = $file;
+        else 
+        $files[]=$adr;
     }
     return $files;
 }
+
+// function getData(string $fileName): array
+// {
+//     if(!file_exists($fileName)){
+//         trigger_error('File "'.$fileName.'" does not exist.', E_USER_ERROR);
+//     }
+//     $file = fopen($fileName,'r');
+//     $ticker = [];
+//     while(($ticker_single=fgetcsv($file))!=false)
+//     {
+//         $ticker[] = $ticker_single;
+//     }
+//     return $ticker;
+
+// }

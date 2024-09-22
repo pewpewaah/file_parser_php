@@ -9,7 +9,9 @@ define('FILES_PATH',$root.'data'.DIRECTORY_SEPARATOR);
 define('VIEWS_PATH',$root.'views'.DIRECTORY_SEPARATOR);
 
 require APP_PATH."App.php";
-var_dump($root);
-$files = getData($root."data");
-var_dump($files);
+$files = getDataPaths($root."data");
 
+foreach($files as $key=>$val )
+{
+    print_r($key." :".$val."\n");
+}
