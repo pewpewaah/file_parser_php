@@ -21,17 +21,17 @@ function getDataPaths(string $dirPath): array
     return $files;
 }
 
-// function getData(string $fileName): array
-// {
-//     if(!file_exists($fileName)){
-//         trigger_error('File "'.$fileName.'" does not exist.', E_USER_ERROR);
-//     }
-//     $file = fopen($fileName,'r');
-//     $ticker = [];
-//     while(($ticker_single=fgetcsv($file))!=false)
-//     {
-//         $ticker[] = $ticker_single;
-//     }
-//     return $ticker;
+function getData(string $fileName): array
+{
+    if(!file_exists($fileName)){
+        trigger_error('File "'.$fileName.'" does not exist.', E_USER_ERROR);
+    }
+    $file = fopen($fileName,'r');
+    $ticker = [];
+    while(($ticker_single=fgetcsv($file))!=false)
+    {
+        $ticker[] = $ticker_single;
+    }
+    return $ticker;
 
-// }
+}
