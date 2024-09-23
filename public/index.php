@@ -10,11 +10,13 @@ define('VIEWS_PATH',$root.'views'.DIRECTORY_SEPARATOR);
 
 require APP_PATH."App.php";
 $files = getDataPaths($root."data");
+$all_tickers = [];
+foreach($files as $key=>$value) 
+{
+    $all_tickers[] = getData($value);
+    var_dump($key);
+}
+foreach($all_tickers[0] as $ticker)
+    print_r($ticker);
 
-// foreach($files as $key=>$val )
-// {
-
-//     print_r($key." :".$val."\n");
-// }
-$ticker = getData($files[0]);
-print_r($ticker);
+require VIEWS_PATH."view1.php";
