@@ -16,7 +16,5 @@ foreach($files as $key=>$value)
     $all_tickers[] = getData($value);
     var_dump($key);
 }
-foreach($all_tickers[0] as $ticker)
-    print_r($ticker);
-
+$ticker = $all_tickers[0];
 require VIEWS_PATH."view1.php";

@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 <?php if(!empty($ticker)):?>
-                    <?php foreach($ticks as $tick):?>
+                    <?php foreach($ticker as $tick):?>
                         <tr>
                             <td><?= $tick['time']?></td>
                             <td><?= $tick['sym']?></td>
